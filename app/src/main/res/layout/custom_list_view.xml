@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffffff"
+    android:padding="8dp">
+    <LinearLayout android:id="@+id/Text"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dip">
+        <TextView
+            android:id="@+id/tvPostTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff000000"
+            android:textSize="20dip"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvPostBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dip"
+            android:textColor="#ff000000"
+            android:paddingLeft="15dip"
+            android:textStyle="normal"
+            />
+        <TextView
+            android:id="@+id/tvPosterInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12dip"
+            android:textColor="#ff000000"
+            android:paddingLeft="15dip"
+            android:textStyle="italic"
+            />
+    </LinearLayout>
+</RelativeLayout >
+<!--Template from: http://developer.xamarin.com/guides/android/user_interface/working_with_listviews_and_adapters/part_3_-_customizing_a_listview's_appearance/-->

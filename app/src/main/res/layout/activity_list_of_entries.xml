@@ -1,0 +1,26 @@
+<RelativeLayout
+    android:id="@+id/rLayout_for_list_of_entries"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView"
+        android:layout_weight="1" />
+    <fragment
+        android:id="@+id/myFragment"
+        android:name="com.example.ettie.teachersroom.EnterEntryFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:layout="@layout/enter_entry_layout" />
+
+</LinearLayout>
+</RelativeLayout>

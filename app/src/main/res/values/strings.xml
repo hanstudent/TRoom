@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Teacher\'s Room</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tr">Teacher\'s Room</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string-array name="gradesList">
+        <item>Grade 1</item>
+        <item>Grade 2</item>
+        <item>Grade 3</item>
+        <item>Grade 4</item>
+        <item>Grade 5</item>
+        <item>Grade 6</item>
+        <item>Grade 7</item>
+        <item>Grade 8</item>
+    </string-array>
+
+    <string-array name="subjectType">
+        <item>Limudei Kodesh</item>
+        <item>Secular Studies</item>
+    </string-array>
+
+    <string name="BSD">"Produced BS\"D"</string>
+    <string name="contactInfo">"Contact us @ TTI"</string>
+    <string name="tuned">Stay Tuned!</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_list_of_entries">ListOfEntries</string>
+
+    <string-array name="entry1">
+        <item>George Washington</item>
+        <item>Anyone have worksheets on our 1st President?</item>
+        <item>Posted by aUser @ 2:26pm, 6/28/15</item>
+    </string-array>
+    <string name="title_activity_entries">Entries</string>
+    <string name="title_activity_entry">EntryActivity</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="title_section3">Section 3</string>
+
+</resources>

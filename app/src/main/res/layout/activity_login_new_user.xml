@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.example.ettie.teachersroom.LoginActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Name"
+                android:ems="10"
+                android:id="@+id/etName"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etName"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/etEmail"
+                android:hint="Email"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/etPassword"
+                android:layout_below="@+id/etEmail"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:hint="Password"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="What Grade Do You Teach?"
+                android:id="@+id/promptForGrade"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/etPassword" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerGrade"
+                android:layout_below="@+id/promptForGrade"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="What Subject Type Do You Teach?"
+                android:id="@+id/promptForSubject"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/spinnerGrade" />
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerSubjectType"
+                android:layout_below="@+id/promptForSubject"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up"
+                android:id="@+id/btnSignUpSubmit"
+                android:layout_below="@+id/spinnerSubjectType"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:onClick="stayTuned"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retrieve All"
+        android:id="@+id/btnRetrieveAll"
+        android:layout_below="@+id/scrollView"
+        android:layout_centerHorizontal="true"
+        android:onClick="getAllTeachers"/>
+
+
+</RelativeLayout>
