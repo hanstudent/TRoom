@@ -8,8 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -24,17 +22,17 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void showLogin(View v) {
-        Intent intent = new Intent(this, NewUserLoginActivity.class);
-        startActivity(intent);
-    }
-
-    public void showSignUp(View v) {
         Intent intent = new Intent(this, ReturningUserLoginActivity.class);
         startActivity(intent);
     }
 
+    public void showSignUp(View v) {
+        Intent intent = new Intent(this, NewUserLoginActivity.class);
+        startActivity(intent);
+    }
+
     public void showTestingScreen(View v) {
-        Intent intent = new Intent(this, ListOfEntries.class);
+        Intent intent = new Intent(MainActivity.this, ListOfPosts.class);
         startActivity(intent);
     }
 
