@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void showTestingScreen(View v) {
-        Intent intent = new Intent(MainActivity.this, ListOfPosts.class);
+        Intent intent = new Intent(MainActivity.this, ListOfEntries.class);
         startActivity(intent);
     }
 

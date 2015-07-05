@@ -24,13 +24,13 @@ public class DBAdapter {
     public static final String C_TGRADE = "grade";
     public static final String C_TSUBJECT_TYPE = "subjectType";
 
-    //post table
-    public static final String TABLE_POST = "post";
-    public static final String C_PID = "_id";
-    public static final String C_PTITLE = "title";
-    public static final String C_PBODY = "body";
-    public static final String C_P_POSTER = "poster";
-    public static final String C_PTIME_OF_POST = "timeOfPost";
+    //entry table
+    public static final String TABLE_ENTRY = "entry";
+    public static final String C_EID = "_id";
+    public static final String C_ETITLE = "title";
+    public static final String C_EBODY = "body";
+    public static final String C_EPOSTER = "poster";
+    public static final String C_ETIME_OF_POST = "timeOfPost";
 
     //SQL statement to create teacher table
     private static final String CREATE_TABLE_TEACHER = "create table " +
@@ -40,13 +40,13 @@ public class DBAdapter {
             C_TGRADE + " integer," +
             C_TSUBJECT_TYPE + " text)";
 
-    //SQL statement to create post table
-    private static final String CREATE_TABLE_POST = "create table " +
-            TABLE_POST + " ( " + C_PID + " integer primary key autoincrement ," +
-            C_PTITLE + " text," +
-            C_PBODY + " text," +
-            C_P_POSTER + " integer," +
-            C_PTIME_OF_POST + " text)";
+    //SQL statement to create entry table
+    private static final String CREATE_TABLE_ENTRY = "create table " +
+            TABLE_ENTRY + " ( " + C_EID + " integer primary key autoincrement ," +
+            C_ETITLE + " text," +
+            C_EBODY + " text," +
+            C_EPOSTER + " integer," +
+            C_ETIME_OF_POST + " text)";
 
     private Context context;
     private DBHelper dbHelper;
@@ -78,14 +78,14 @@ public class DBAdapter {
         return db.insert(TABLE_TEACHER, null, values);
     }
 
-    //insert a Post
-    public long insertPost(Post post) {
+    //insert an entry
+    public long insertEntry(Entry entry) {
         ContentValues values = new ContentValues();
-        values.put(C_PTITLE, post.getPostTitle());
-        values.put(C_PBODY, post.getPostBody());
-        values.put(C_P_POSTER, post.getPostPoster());
-        values.put(C_PTIME_OF_POST, post.getPostTime());
-        return db.insert(TABLE_POST, null, values);
+        values.put(C_ETITLE, entry.getEntryTitle());
+        values.put(C_EBODY, entry.getEntryBody());
+        values.put(C_EPOSTER, entry.getEntryPoster());
+        values.put(C_ETIME_OF_POST, entry.getEntryTime());
+        return db.insert(TABLE_ENTRY, null, values);
     }
 
     //get all teachers
@@ -93,9 +93,9 @@ public class DBAdapter {
         return db.query(TABLE_TEACHER, null, null, null, null, null, null);
     }
 
-    //get all Posts
-    public Cursor getAllPosts() {
-        return db.query(TABLE_POST, null, null, null, null, null, null);
+    //get all entries
+    public Cursor getAllEntries() {
+        return db.query(TABLE_ENTRY, null, null, null, null, null, null);
     }
     //update a teacher record
     public int updateTeacher(long id, Teacher teacher) {
@@ -107,14 +107,14 @@ public class DBAdapter {
         return db.update(TABLE_TEACHER, values, C_TID + "=?", new String[]{id + ""});
     }
 
-    //update a Post record
-    public int updatePost(long id, Post post) {
+    //update an entry record
+    public int updateEntry(long id, Entry entry) {
         ContentValues values = new ContentValues();
-        values.put(C_PTITLE, post.getPostTitle());
-        values.put(C_PBODY, post.getPostBody());
-        values.put(C_P_POSTER, post.getPostPoster());
-        values.put(C_PTIME_OF_POST, post.getPostTitle());
-        return db.update(TABLE_POST, values, C_PID + "=?", new String[]{id + ""});
+        values.put(C_ETITLE, entry.getEntryTitle());
+        values.put(C_EBODY, entry.getEntryBody());
+        values.put(C_EPOSTER, entry.getEntryPoster());
+        values.put(C_ETIME_OF_POST, entry.getEntryTitle());
+        return db.update(TABLE_ENTRY, values, C_TID + "=?", new String[]{id + ""});
     }
 
     //delete a teacher record
@@ -122,9 +122,9 @@ public class DBAdapter {
         return db.delete(TABLE_TEACHER, C_TID + "=?", new String[]{id + ""});
     }
 
-    //delete a post record
-    public int deletePost(long id) {
-        return db.delete(TABLE_POST, C_PID + "=?", new String[]{id + ""});
+    //delete an entry record
+    public int deleteEntry(long id) {
+        return db.delete(TABLE_ENTRY, C_TID + "=?", new String[]{id + ""});
     }
 
     //get a single teacher record
@@ -137,9 +137,9 @@ public class DBAdapter {
         return cursor;
     }
 
-    //get a single Post record
-    public Cursor getPostById(long id) {
-        Cursor cursor = db.query(TABLE_POST, null, C_PID + "=?", new String[]{id + ""}, null, null, null);
+    //get a single entry record
+    public Cursor getEntryById(long id) {
+        Cursor cursor = db.query(TABLE_ENTRY, null, C_EID + "=?", new String[]{id + ""}, null, null, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
@@ -158,7 +158,7 @@ public class DBAdapter {
         public void onCreate(SQLiteDatabase db) {
             try {
                 db.execSQL(CREATE_TABLE_TEACHER);
-                db.execSQL(CREATE_TABLE_POST);
+                db.execSQL(CREATE_TABLE_ENTRY);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -168,11 +168,11 @@ public class DBAdapter {
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             //clear data
             db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEACHER);
-            db.execSQL("DROP TABLE IF EXISTS " + TABLE_POST);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENTRY);
             //recreate tables
             onCreate(db);
             /*Toast.makeText(DBAdapter.this, "Upgrading DB from version " + oldVersion + " to " + newVersion, Toast.LENGTH_SHORT).show();*/
         }
-     }
+    }
 
- }
+}
