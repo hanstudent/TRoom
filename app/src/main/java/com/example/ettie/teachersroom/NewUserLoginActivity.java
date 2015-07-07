@@ -34,7 +34,7 @@ public class NewUserLoginActivity extends ActionBarActivity {
         setTitle(R.string.tr);
         setContentView(R.layout.activity_login_new_user);
 
-        //intent = new Intent(this, ListOfPosts.class);
+        intent = new Intent(this, ListOfEntries.class);
 
         grades = getResources().getStringArray(R.array.gradesList);
         final Spinner spinnerG = (Spinner)findViewById(R.id.spinnerGrade);
@@ -95,7 +95,7 @@ public class NewUserLoginActivity extends ActionBarActivity {
 
         //we have to add code to this class and specifically to this method to address storing login info
         //in the meanwhile, we'll allow the activity to move to the ListOfEntries activity
-      // startActivity(intent);
+       startActivity(intent);
     }
 
     //page 322 to retrieve all records, as a test to see that our db is really capturing all entries
