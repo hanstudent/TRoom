@@ -2,26 +2,35 @@
     android:id="@+id/rLayout_for_list_of_entries"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
+       <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:baselineAligned="false">
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/listView" />
-        <fragment
-            android:id="@+id/myFragment"
-            android:name="com.example.ettie.teachersroom.EnterEntryFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/listView"
+            android:layout_gravity="top"
             />
+          <!-- <FrameLayout
+               android:id="@+id/bottom"
+               android:layout_width="fill_parent"
+               android:layout_height="fill_parent"
+               android:layout_below="@+id/listView">
+           </FrameLayout>-->
+            <fragment
+                android:id="@+id/myFragment"
+                android:name="com.example.ettie.teachersroom.EnterEntryFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                />
             <!--tools:layout="@layout/enter_entry_layout"-->
-
 
     </LinearLayout>
 </RelativeLayout>

@@ -20,6 +20,13 @@ public class Entry {
         this.entryPoster = entryInfo;
     }
 
+    public Entry(String entryTitle, String entryBody, String entryPoster, String entryTime) {
+        this.entryTitle = entryTitle;
+        this.entryBody = entryBody;
+        this.entryPoster = entryPoster;
+        this.entryTime = entryTime;
+    }
+
     public int getEntryId() {
         return entryId;
     }
@@ -64,6 +71,6 @@ public class Entry {
     public String toString() {
         return "\n" + getEntryTitle() +
                 "\n" + getEntryBody() +
-                "\n" + getEntryPoster()+ ": " + getEntryTime() ;
+                "\nPosted by " + getEntryPoster()+ " @ " + getEntryTime() ;
     }
 }

@@ -42,4 +42,6 @@
     <string name="title_section2">Section 2</string>
     <string name="title_section3">Section 3</string>
 
+    <string name="hint_title">Title</string>
+    <string name="hint_message">Message</string>
 </resources>

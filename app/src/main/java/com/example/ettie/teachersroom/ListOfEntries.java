@@ -37,6 +37,13 @@ public class ListOfEntries extends FragmentActivity implements AdapterView.OnIte
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
 
+        /*FragmentTransaction ft = getFragmentManager().beginTransaction();
+        EnterEntryFragment enter = new EnterEntryFragment();
+        ft.add(R.id.bottom, enter, "bottom");
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        ft.commit();
+        getSupportFragmentManager().executePendingTransactions();*/
+
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
