@@ -1,6 +1,9 @@
 package com.example.ettie.teachersroom;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,11 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
 
 import java.util.ArrayList;
 
 //page 214 for more info
-public class ListOfEntries extends Activity implements AdapterView.OnItemClickListener {
+public class ListOfEntries extends FragmentActivity implements AdapterView.OnItemClickListener {
 
     // private String[] listOfEntries; /* = {"George Washington", "Any ideas?", "Posted by aUser"}*/
     ArrayList<Entry> entryArrayList;
@@ -32,6 +36,16 @@ public class ListOfEntries extends Activity implements AdapterView.OnItemClickLi
         ListEntryAdapter adapter = new ListEntryAdapter(this, entryArrayList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(this);
+
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        EnterEntryFragment myFrag = new EnterEntryFragment();
+
+// work here to change Activity fragments (add, remove, etc.).  Example here of adding.
+        fragmentTransaction.add (R.id.myFragment, myFrag);
+        fragmentTransaction.commit();
+
        /* RelativeLayout rLayoutList = (RelativeLayout)findViewById(R.id.rLayout_for_list_of_entries);
         RelativeLayout relativeLayout = (RelativeLayout)findViewById(R.id.rLayout_for_adding_entries);
         rLayoutList.addView(relativeLayout);*/
