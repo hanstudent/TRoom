@@ -10,19 +10,21 @@ public class Entry {
     private String entryBody;
     private String entryPoster;
     private String entryTime;
+    private String entryTag;
 
     public Entry() {
     }
 
-    public Entry(String entryTitle, String entryBody, String entryInfo) {
+    public Entry(String entryTitle, String entryBody, String entryPoster) {
         this.entryTitle = entryTitle;
         this.entryBody = entryBody;
-        this.entryPoster = entryInfo;
+        this.entryPoster = entryPoster;
     }
 
-    public Entry(String entryTitle, String entryBody, String entryPoster, String entryTime) {
+    public Entry(String entryTitle, String entryBody, String entryTag, String entryPoster, String entryTime) {
         this.entryTitle = entryTitle;
         this.entryBody = entryBody;
+        this.entryTag = entryTag;
         this.entryPoster = entryPoster;
         this.entryTime = entryTime;
     }
@@ -51,6 +53,14 @@ public class Entry {
         this.entryBody = entryBody;
     }
 
+    public String getEntryTag() {
+        return entryTag;
+    }
+
+    public void setEntryTag(String entryTag) {
+        this.entryTag = entryTag;
+    }
+
     public String getEntryPoster() {
         return entryPoster;
     }
@@ -71,6 +81,7 @@ public class Entry {
     public String toString() {
         return "\n" + getEntryTitle() +
                 "\n" + getEntryBody() +
+                "\n Tagged as: " + getEntryTag() +
                 "\nPosted by " + getEntryPoster()+ " @ " + getEntryTime() ;
     }
 }

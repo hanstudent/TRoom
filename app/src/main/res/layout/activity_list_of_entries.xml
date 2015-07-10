@@ -31,6 +31,6 @@
                 android:layout_weight="1"
                 />
             <!--tools:layout="@layout/enter_entry_layout"-->
-
+            <!--"com.example.ettie.teachersroom.EnterEntryFragment"-->
     </LinearLayout>
 </RelativeLayout>

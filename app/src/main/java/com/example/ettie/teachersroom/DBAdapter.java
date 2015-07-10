@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBAdapter {
 
     public static final String DB_NAME = "teacher_and_convo_db";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     //teacher table
     public static final String TABLE_TEACHER = "teacher";
@@ -29,6 +29,7 @@ public class DBAdapter {
     public static final String C_EID = "_id";
     public static final String C_ETITLE = "title";
     public static final String C_EBODY = "body";
+    public static final String C_ETAG = "tag";
     public static final String C_EPOSTER = "poster";
     public static final String C_ETIME_OF_POST = "timeOfPost";
 
@@ -45,6 +46,7 @@ public class DBAdapter {
             TABLE_ENTRY + " ( " + C_EID + " integer primary key autoincrement ," +
             C_ETITLE + " text," +
             C_EBODY + " text," +
+            C_ETAG + " text," +
             C_EPOSTER + " integer," +
             C_ETIME_OF_POST + " text)";
 
@@ -83,6 +85,7 @@ public class DBAdapter {
         ContentValues values = new ContentValues();
         values.put(C_ETITLE, entry.getEntryTitle());
         values.put(C_EBODY, entry.getEntryBody());
+        values.put(C_ETAG, entry.getEntryTag());
         values.put(C_EPOSTER, entry.getEntryPoster());
         values.put(C_ETIME_OF_POST, entry.getEntryTime());
         return db.insert(TABLE_ENTRY, null, values);
@@ -112,6 +115,7 @@ public class DBAdapter {
         ContentValues values = new ContentValues();
         values.put(C_ETITLE, entry.getEntryTitle());
         values.put(C_EBODY, entry.getEntryBody());
+        values.put(C_ETAG, entry.getEntryTag());
         values.put(C_EPOSTER, entry.getEntryPoster());
         values.put(C_ETIME_OF_POST, entry.getEntryTitle());
         return db.update(TABLE_ENTRY, values, C_TID + "=?", new String[]{id + ""});
