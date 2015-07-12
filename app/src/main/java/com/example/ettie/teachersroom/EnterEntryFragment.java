@@ -32,41 +32,22 @@ public class EnterEntryFragment extends Fragment{
         View view = inflater.inflate(R.layout.enter_entry_layout, container, false);
       post = (EditText)view.findViewById(R.id.newPost);
         //title.setHint("Title");
-       post.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               post.setHint("");
-           }
-       });
-       post.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        post.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
-                post.setHint("Title: Post body");
+                if (hasFocus) {
+                    post.setHint("Title:: Your post follows ::");
+                } else {
+                    post.setHint("");
+                }
             }
         });
-        /*
-        message = (EditText)view.findViewById(R.id.etMessageBody);
-        message.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                message.setHint("");
-            }
-        });
-        message.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                title.setHint("Message");
-            }
-        });*/
 
         Button btnPost = (Button)view.findViewById(R.id.btnPost);
         btnPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // etTitle = ((EditText)getView().findViewById(R.id.etTitle)).getText().toString();
-                //etTitle = title.getText().toString();
-                //etMessage = ((EditText)getView().findViewById(R.id.etMessageBody)).getText().toString();
-                //etMessage = message.getText().toString();
+
                 wholePost = ((EditText)getView().findViewById(R.id.newPost)).getText().toString();
                 delims = "[::]+";
                 String[] tokens = wholePost.split(delims);
@@ -108,7 +89,7 @@ public class EnterEntryFragment extends Fragment{
                         poster = cursor.getString(cursor.getColumnIndex(DBAdapter.C_EPOSTER));
                         time = cursor.getString(cursor.getColumnIndex(DBAdapter.C_ETIME_OF_POST));
                         entry = new Entry(title, body, tag, poster, time);
-                        Toast.makeText(getActivity(), "Entry: " + entry.toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Entry " + id + ": " + entry.toString(), Toast.LENGTH_SHORT).show();
                     } while (cursor.moveToNext());
                 }
                 dbAdapter.close();
@@ -117,3 +98,36 @@ public class EnterEntryFragment extends Fragment{
         return view;
     }
 }
+
+//Misc. code:
+ /* post.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               post.setHint("");
+           }
+       });*/
+      /* post.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                post.setHint("Title: Post body");
+            }
+        });*/
+        /*
+        message = (EditText)view.findViewById(R.id.etMessageBody);
+        message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                message.setHint("");
+            }
+        });
+        message.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                title.setHint("Message");
+            }
+        });*/
+
+// etTitle = ((EditText)getView().findViewById(R.id.etTitle)).getText().toString();
+//etTitle = title.getText().toString();
+//etMessage = ((EditText)getView().findViewById(R.id.etMessageBody)).getText().toString();
+//etMessage = message.getText().toString();

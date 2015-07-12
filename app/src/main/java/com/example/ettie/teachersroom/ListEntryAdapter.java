@@ -61,7 +61,9 @@ public class ListEntryAdapter extends BaseAdapter {
         Entry entry = listEntry.get(position);
         holder.txtTitle.setText(entry.getEntryTitle());
         holder.txtBody.setText(entry.getEntryBody());
-        holder.txtInfo.setText(entry.getEntryPoster());
+        holder.txtInfo.setText("Posted by: " + entry.getEntryPoster() +
+            " on " + entry.getEntryTime() +
+            ", tagged as: " + entry.getEntryTag());
 
         return convertView;
     }
