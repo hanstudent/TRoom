@@ -68,14 +68,12 @@ public class EnterEntryFragment extends Fragment{
                 //etMessage = ((EditText)getView().findViewById(R.id.etMessageBody)).getText().toString();
                 //etMessage = message.getText().toString();
                 wholePost = ((EditText)getView().findViewById(R.id.newPost)).getText().toString();
-                delims = ":";
+                delims = "[::]+";
                 String[] tokens = wholePost.split(delims);
                 entry = new Entry();
                 title = tokens[0];
-                message = "";
-                for (int i = 1; i < wholePost.length(); i++) {
-                    message += tokens[i];
-                }
+                message = tokens[1];
+
                 entry.setEntryTitle(title);
                 entry.setEntryBody(message);
                 time =  new Date().toString();
