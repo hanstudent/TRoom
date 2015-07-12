@@ -1,27 +1,24 @@
 package com.example.ettie.teachersroom;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.support.v4.app.FragmentActivity;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 //page 214 for more info
-public class ListOfEntries extends FragmentActivity implements AdapterView.OnItemClickListener {
+public class ListOfEntries extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     ArrayList<Entry> entryArrayList;
     ListView listView;
+    //Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +26,11 @@ public class ListOfEntries extends FragmentActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_list_of_entries);
         setTitle("Teacher's Room");
 
-
-
+        //intent = new Intent(ListOfEntries.this, NewEntry.class);
         //from: http://www.android-ios-tutorials.com/android/android-custom-listview-example/
         entryArrayList = new ArrayList<Entry>();
         Entry gw1 = new Entry("George Washington", "Any ideas?", "Posted by aUser");
         entryArrayList.add(gw1);
-     /*   listView = (ListView) findViewById(R.id.listView);
-        ListEntryAdapter adapter = new ListEntryAdapter(this, entryArrayList);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(this);*/
 
         DBAdapter dbAdapter = new DBAdapter(this);
         dbAdapter.open();
@@ -70,17 +62,7 @@ public class ListOfEntries extends FragmentActivity implements AdapterView.OnIte
     ListEntryAdapter adapter = new ListEntryAdapter(this, entryArrayList);
     listView.setAdapter(adapter);
     listView.setOnItemClickListener(this);
-
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        EnterEntryFragment myFrag = new EnterEntryFragment();
-
-// work here to change Activity fragments (add, remove, etc.).  Example here of adding.
-        fragmentTransaction.add(R.id.myFragment, myFrag);
-        fragmentTransaction.commit();
-}
-
-
+    }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Entry selectedEntry = entryArrayList.get(position);
@@ -96,21 +78,30 @@ public class ListOfEntries extends FragmentActivity implements AdapterView.OnIte
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.newPost:
+                Intent intent = new Intent(this, NewEntry.class);
+                startActivity(intent);
+                return true;
+            case R.id.about:
+                Toast.makeText(this, R.string.BSD, Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.contact:
+                Toast.makeText(this, R.string.contactInfo, Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }
 
 //Misc. code:
+    /*import android.app.Activity;
+    import android.app.Fragment;
+    import android.app.FragmentManager;
+    import android.app.FragmentTransaction;
+    import android.support.v4.app.FragmentActivity;
+    import java.util.Date;*/
  /*FragmentTransaction ft = getFragmentManager().beginTransaction();
         EnterEntryFragment enter = new EnterEntryFragment();
         ft.add(R.id.bottom, enter, "bottom");
@@ -125,4 +116,40 @@ public class ListOfEntries extends FragmentActivity implements AdapterView.OnIte
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Fragment fragmentEntry = new Fragment();
         fragmentTransaction.add(R.id.myFragment, fragmentEntry);
+        fragmentTransaction.commit();*/
+  /* @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_list_of_entries, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.newPost:
+                Intent intent = new Intent(this, NewPost.class);
+                startActivity(intent);
+            case R.id.about:
+                Toast.makeText(this, R.string.BSD, Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.contact:
+                Toast.makeText(this, R.string.contactInfo, Toast.LENGTH_LONG).show();
+                return true;
+        }
+        return false;
+    }*/
+ /*   listView = (ListView) findViewById(R.id.listView);
+        ListEntryAdapter adapter = new ListEntryAdapter(this, entryArrayList);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);*/
+
+//Fragment stuff:
+//
+        /*FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        EnterEntryFragment myFrag = new EnterEntryFragment();
+
+// work here to change Activity fragments (add, remove, etc.).  Example here of adding.
+        fragmentTransaction.add(R.id.myFragment, myFrag);
         fragmentTransaction.commit();*/

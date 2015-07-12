@@ -3,7 +3,8 @@ package com.example.ettie.teachersroom;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+//import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class NewUserLoginActivity extends ActionBarActivity {
+public class NewUserLoginActivity extends AppCompatActivity {
 
     private String[] grades;
     private String[] overallSubjects;

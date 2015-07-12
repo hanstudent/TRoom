@@ -44,4 +44,5 @@
 
     <string name="hint_title">Title</string>
     <string name="hint_message">Message</string>
+    <string name="title_activity_new_post">NewPost</string>
 </resources>
